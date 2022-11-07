@@ -12,11 +12,32 @@ part of 'article_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) {
   return _ArticleModel.fromJson(json);
 }
+
+/// @nodoc
+class _$ArticleModelTearOff {
+  const _$ArticleModelTearOff();
+
+  _ArticleModel call(
+      int id, @JsonKey(name: 'author_id') int authorId, String content) {
+    return _ArticleModel(
+      id,
+      authorId,
+      content,
+    );
+  }
+
+  ArticleModel fromJson(Map<String, Object?> json) {
+    return ArticleModel.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ArticleModel = _$ArticleModelTearOff();
 
 /// @nodoc
 mixin _$ArticleModel {
@@ -35,81 +56,77 @@ mixin _$ArticleModel {
 abstract class $ArticleModelCopyWith<$Res> {
   factory $ArticleModelCopyWith(
           ArticleModel value, $Res Function(ArticleModel) then) =
-      _$ArticleModelCopyWithImpl<$Res, ArticleModel>;
-  @useResult
+      _$ArticleModelCopyWithImpl<$Res>;
   $Res call({int id, @JsonKey(name: 'author_id') int authorId, String content});
 }
 
 /// @nodoc
-class _$ArticleModelCopyWithImpl<$Res, $Val extends ArticleModel>
-    implements $ArticleModelCopyWith<$Res> {
+class _$ArticleModelCopyWithImpl<$Res> implements $ArticleModelCopyWith<$Res> {
   _$ArticleModelCopyWithImpl(this._value, this._then);
 
+  final ArticleModel _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(ArticleModel) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? authorId = null,
-    Object? content = null,
+    Object? id = freezed,
+    Object? authorId = freezed,
+    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      authorId: null == authorId
+      authorId: authorId == freezed
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
               as int,
-      content: null == content
+      content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 }
 
 /// @nodoc
-abstract class _$$_ArticleModelCopyWith<$Res>
+abstract class _$ArticleModelCopyWith<$Res>
     implements $ArticleModelCopyWith<$Res> {
-  factory _$$_ArticleModelCopyWith(
-          _$_ArticleModel value, $Res Function(_$_ArticleModel) then) =
-      __$$_ArticleModelCopyWithImpl<$Res>;
+  factory _$ArticleModelCopyWith(
+          _ArticleModel value, $Res Function(_ArticleModel) then) =
+      __$ArticleModelCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call({int id, @JsonKey(name: 'author_id') int authorId, String content});
 }
 
 /// @nodoc
-class __$$_ArticleModelCopyWithImpl<$Res>
-    extends _$ArticleModelCopyWithImpl<$Res, _$_ArticleModel>
-    implements _$$_ArticleModelCopyWith<$Res> {
-  __$$_ArticleModelCopyWithImpl(
-      _$_ArticleModel _value, $Res Function(_$_ArticleModel) _then)
-      : super(_value, _then);
+class __$ArticleModelCopyWithImpl<$Res> extends _$ArticleModelCopyWithImpl<$Res>
+    implements _$ArticleModelCopyWith<$Res> {
+  __$ArticleModelCopyWithImpl(
+      _ArticleModel _value, $Res Function(_ArticleModel) _then)
+      : super(_value, (v) => _then(v as _ArticleModel));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _ArticleModel get _value => super._value as _ArticleModel;
+
   @override
   $Res call({
-    Object? id = null,
-    Object? authorId = null,
-    Object? content = null,
+    Object? id = freezed,
+    Object? authorId = freezed,
+    Object? content = freezed,
   }) {
-    return _then(_$_ArticleModel(
-      null == id
+    return _then(_ArticleModel(
+      id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      null == authorId
+      authorId == freezed
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
               as int,
-      null == content
+      content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
@@ -143,36 +160,34 @@ class _$_ArticleModel implements _ArticleModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ArticleModel &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.authorId, authorId) ||
-                other.authorId == authorId) &&
-            (identical(other.content, content) || other.content == content));
+            other is _ArticleModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.authorId, authorId) &&
+            const DeepCollectionEquality().equals(other.content, content));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, authorId, content);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(authorId),
+      const DeepCollectionEquality().hash(content));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$_ArticleModelCopyWith<_$_ArticleModel> get copyWith =>
-      __$$_ArticleModelCopyWithImpl<_$_ArticleModel>(this, _$identity);
+  _$ArticleModelCopyWith<_ArticleModel> get copyWith =>
+      __$ArticleModelCopyWithImpl<_ArticleModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ArticleModelToJson(
-      this,
-    );
+    return _$$_ArticleModelToJson(this);
   }
 }
 
 abstract class _ArticleModel implements ArticleModel {
   factory _ArticleModel(
-      final int id,
-      @JsonKey(name: 'author_id') final int authorId,
-      final String content) = _$_ArticleModel;
+          int id, @JsonKey(name: 'author_id') int authorId, String content) =
+      _$_ArticleModel;
 
   factory _ArticleModel.fromJson(Map<String, dynamic> json) =
       _$_ArticleModel.fromJson;
@@ -186,6 +201,6 @@ abstract class _ArticleModel implements ArticleModel {
   String get content;
   @override
   @JsonKey(ignore: true)
-  _$$_ArticleModelCopyWith<_$_ArticleModel> get copyWith =>
+  _$ArticleModelCopyWith<_ArticleModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
